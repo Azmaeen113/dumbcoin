@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Ultra-Premium Dark Theme */
+    --background: 240 60% 4%;
+    --background-secondary: 240 50% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 100% / 0.05;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 50% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary: Vibrant Orange */
+    --primary: 14 100% 60%;
+    --primary-light: 28 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Electric Yellow/Gold */
+    --secondary: 44 100% 62%;
+    --secondary-light: 51 100% 50%;
+    --secondary-foreground: 240 60% 4%;
+
+    /* Highlight: Hot Pink/Magenta */
+    --accent: 331 100% 55%;
+    --accent-light: 340 83% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Supporting Colors */
+    --purple: 257 80% 62%;
+    --purple-light: 252 83% 67%;
+    --cyan: 191 100% 50%;
+    --cyan-light: 198 100% 55%;
+
+    --muted: 240 20% 20%;
+    --muted-foreground: 0 0% 71%;
+    --muted-text: 0 0% 42%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 14 100% 60%;
+
+    --radius: 1rem;
+
+    /* Premium Gradients */
+    --gradient-hero: radial-gradient(circle at 20% 50%, hsl(257 80% 62% / 0.15) 0%, transparent 50%), 
+                     radial-gradient(circle at 80% 50%, hsl(14 100% 60% / 0.15) 0%, transparent 50%),
+                     linear-gradient(135deg, hsl(240 60% 4%) 0%, hsl(240 50% 7%) 100%);
+    --gradient-primary-cta: linear-gradient(135deg, hsl(14 100% 60%) 0%, hsl(331 100% 55%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(44 100% 62%) 0%, hsl(14 100% 60%) 50%, hsl(331 100% 55%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.03) 100%);
+    --gradient-border: linear-gradient(135deg, hsl(14 100% 60%) 0%, hsl(331 100% 55%) 50%, hsl(257 80% 62%) 100%);
+    --gradient-mesh: radial-gradient(at 0% 0%, hsl(257 80% 62% / 0.2) 0%, transparent 50%),
+                     radial-gradient(at 100% 0%, hsl(14 100% 60% / 0.2) 0%, transparent 50%),
+                     radial-gradient(at 100% 100%, hsl(331 100% 55% / 0.2) 0%, transparent 50%),
+                     radial-gradient(at 0% 100%, hsl(191 100% 50% / 0.2) 0%, transparent 50%);
+    
+    /* Premium Shadows */
+    --shadow-glow-primary: 0 0 60px hsl(14 100% 60% / 0.4), 0 0 100px hsl(14 100% 60% / 0.2);
+    --shadow-glow-accent: 0 0 60px hsl(331 100% 55% / 0.4), 0 0 100px hsl(331 100% 55% / 0.2);
+    --shadow-glow-purple: 0 0 60px hsl(257 80% 62% / 0.4);
+    --shadow-card: 0 20px 60px hsl(0 0% 0% / 0.3), 0 0 1px hsl(0 0% 100% / 0.1) inset;
+    --shadow-card-hover: 0 30px 80px hsl(0 0% 0% / 0.4), 0 0 2px hsl(14 100% 60% / 0.5) inset;
+    
+    /* Premium Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
