@@ -4,19 +4,19 @@ const features = [
   {
     icon: Users,
     title: "Community First",
-    description: "We're building a community, not just a token. DumbCoin holders get access to early events, community votes, and exclusive perks.",
+    description: "We're building a community, not just a token. <span className='text-brand'>DumbCoin</span> holders get access to early events, community votes, and exclusive perks.",
     gradient: "from-primary to-secondary",
   },
   {
     icon: BookOpen,
     title: "Be Part of History",
-    description: "Every token is part of the story. DumbCoin is an experiment where every contribution matters.",
+    description: "Every token is part of the story. <span className='text-brand'>DumbCoin</span> is an experiment where every contribution matters.",
     gradient: "from-secondary to-accent",
   },
   {
     icon: TrendingUp,
     title: "Early Adopter Benefits",
-    description: "The earlier you join, the louder your name will echo in the DumbCoin legend.",
+    description: "The earlier you join, the louder your name will echo in the <span className='text-brand'>DumbCoin</span> legend.",
     gradient: "from-accent to-purple",
   },
 ];
@@ -30,11 +30,11 @@ export const About = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-heading">
             Why Buy <span className="bg-gradient-text bg-clip-text text-transparent">DumbCoin?</span>
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Join thousands of smart investors making brilliantly dumb decisions
+          <p className="text-lg sm:text-xl text-secondary-enhanced max-w-3xl mx-auto text-body">
+            Join thousands of smart investors making brilliantly <span className="text-primary-enhanced">dumb</span> decisions
           </p>
         </div>
 
@@ -59,8 +59,7 @@ export const About = () => {
                   {feature.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
+                <p className="text-muted-foreground leading-relaxed text-body" dangerouslySetInnerHTML={{ __html: feature.description }}>
                 </p>
               </div>
             </div>

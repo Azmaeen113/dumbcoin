@@ -23,11 +23,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent text-brand">
               DumbCoin
             </h3>
-            <p className="text-muted-foreground">
-              The smartest dumb investment on Base. Join the revolution.
+            <p className="text-secondary-enhanced text-body">
+              The smartest <span className="text-primary-enhanced">dumb</span> investment on Base. Join the revolution.
             </p>
             <div className="flex gap-4">
               <a
@@ -105,8 +105,8 @@ export const Footer = () => {
             <p className="text-sm text-muted-foreground text-center sm:text-left">
               © 2025 DumbCoin. All rights reserved. Built on Base.
             </p>
-            <p className="text-xs text-muted-foreground text-center sm:text-right max-w-md">
-              DumbCoin is a meme token. Invest responsibly. Cryptocurrency investments carry risk.
+            <p className="text-xs text-secondary-enhanced text-center sm:text-right max-w-md text-body">
+              <span className="text-brand">DumbCoin</span> is a meme token. Invest responsibly. Cryptocurrency investments carry risk.
             </p>
           </div>
         </div>

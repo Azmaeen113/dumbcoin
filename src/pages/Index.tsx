@@ -5,6 +5,7 @@ import { Tokenomics } from "@/components/Tokenomics";
 import { Roadmap } from "@/components/Roadmap";
 import { Community } from "@/components/Community";
 import { Footer } from "@/components/Footer";
+import { FloatingCTA } from "@/components/FloatingCTA";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
         <Community />
       </div>
       <Footer />
+      <FloatingCTA />
     </div>
   );
 };

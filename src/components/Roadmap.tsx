@@ -73,14 +73,34 @@ export const Roadmap = () => {
     <section className="py-20 sm:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background"></div>
       
+      {/* Enhanced background decorations */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-float-slow"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: "3s" }}></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-            The Journey to <span className="bg-gradient-primary bg-clip-text text-transparent">Greatness</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From launch to legend - our roadmap to becoming the smartest dumb project
-          </p>
+        <div className="text-center mb-20 space-y-6 animate-slide-up">
+          {/* Enhanced heading with visual elements */}
+          <div className="relative inline-block">
+            <div className="absolute -inset-4 bg-gradient-primary-cta rounded-2xl blur-xl opacity-20 animate-pulse-glow"></div>
+            <h2 className="relative text-4xl sm:text-5xl lg:text-6xl font-bold text-heading">
+              The Journey to <span className="text-foreground">Greatness</span>
+            </h2>
+          </div>
+          
+          {/* Enhanced description with better styling */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-secondary-enhanced text-body leading-relaxed">
+              From launch to legend - our roadmap to becoming the smartest <span className="text-primary-enhanced font-bold">dumb</span> project
+            </p>
+          </div>
+          
+          {/* Decorative element */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <div className="w-16 h-0.5 bg-gradient-primary-cta rounded-full"></div>
+            <div className="w-3 h-3 bg-gradient-primary-cta rounded-full animate-pulse-glow"></div>
+            <div className="w-16 h-0.5 bg-gradient-primary-cta rounded-full"></div>
+          </div>
         </div>
 
         <div className="max-w-5xl mx-auto relative">
@@ -98,23 +118,23 @@ export const Roadmap = () => {
               >
                 {/* Content */}
                 <div className="flex-1 w-full">
-                  <div className="p-8 rounded-2xl bg-gradient-card backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-500 hover:scale-105 hover:shadow-glow group">
+                  <div className="p-8 rounded-2xl bg-gradient-card backdrop-blur-sm border border-border hover:bg-gradient-primary-cta hover:border-primary transition-all duration-500 hover:scale-105 hover:shadow-glow-primary group">
                     <div className="flex items-start gap-4 mb-6">
                       <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:animate-pulse-glow flex-shrink-0">
                         <phase.icon className="w-7 h-7 text-background" />
                       </div>
                       <div>
-                        <div className="text-sm text-primary font-bold mb-1">{phase.phase}</div>
-                        <h3 className="text-2xl font-bold mb-1">{phase.title}</h3>
-                        <p className="text-sm text-muted-foreground">{phase.subtitle}</p>
+                        <div className="text-sm text-primary font-bold mb-1 group-hover:text-black transition-colors duration-300">{phase.phase}</div>
+                        <h3 className="text-2xl font-bold mb-1 group-hover:text-black transition-colors duration-300">{phase.title}</h3>
+                        <p className="text-sm text-muted-foreground group-hover:text-black transition-colors duration-300">{phase.subtitle}</p>
                       </div>
                     </div>
                     
                     <ul className="space-y-3">
                       {phase.items.map((item, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                          <span className="text-muted-foreground leading-relaxed">{item}</span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:bg-black transition-colors duration-300"></div>
+                          <span className="text-muted-foreground leading-relaxed group-hover:text-black transition-colors duration-300">{item}</span>
                         </li>
                       ))}
                     </ul>

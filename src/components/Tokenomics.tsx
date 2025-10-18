@@ -1,14 +1,35 @@
-import { Copy, Check, ExternalLink, Shield } from "lucide-react";
+import { Copy, Check, ExternalLink, Shield, Network, Coins, Gem, Users } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
 const stats = [
-  { label: "Network", value: "Base", icon: "🔗" },
-  { label: "Ticker", value: "$DUMB", icon: "🪙" },
-  { label: "Total Supply", value: "1B", icon: "💎" },
-  { label: "Holders", value: "Growing", icon: "👥" },
+  { label: "Network", value: "Base", icon: Network },
+  { label: "Ticker", value: "$DUMB", icon: Coins },
+  { label: "Total Supply", value: "1B", icon: Gem },
+  { label: "Holders", value: "Growing", icon: Users },
 ];
+
+const tokenomicsData = [
+  { name: "Community Rewards", value: 40, color: "hsl(14, 100%, 60%)" }, // Primary orange
+  { name: "Liquidity Pool", value: 25, color: "hsl(44, 100%, 62%)" }, // Secondary yellow
+  { name: "Marketing", value: 20, color: "hsl(331, 100%, 55%)" }, // Accent pink
+  { name: "Team", value: 10, color: "hsl(257, 80%, 62%)" }, // Purple
+  { name: "Reserve", value: 5, color: "hsl(191, 100%, 50%)" }, // Cyan
+];
+
+const CustomTooltip = ({ active, payload }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg p-3 shadow-lg">
+        <p className="text-foreground font-semibold">{payload[0].name}</p>
+        <p className="text-primary font-bold">{payload[0].value}%</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 export const Tokenomics = () => {
   const [copied, setCopied] = useState(false);
@@ -38,11 +59,11 @@ export const Tokenomics = () => {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-heading">
             Tokenomics
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Smart numbers behind the dumb name
+          <p className="text-lg sm:text-xl text-secondary-enhanced max-w-2xl mx-auto text-body">
+            Smart numbers behind the <span className="text-foreground">dumb</span> name
           </p>
         </div>
 
@@ -114,8 +135,12 @@ export const Tokenomics = () => {
               >
                 <div className="absolute -inset-0.5 bg-gradient-border rounded-xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
                 
-                <div className="relative p-6 rounded-xl bg-gradient-card backdrop-blur-xl border border-border/50 hover:shadow-card transition-all duration-500 hover:-translate-y-1 text-center">
-                  <div className="text-3xl mb-3">{stat.icon}</div>
+                <div className="relative p-6 rounded-xl bg-gradient-card backdrop-blur-xl border border-border/50 hover:shadow-card transition-all duration-500 hover:-translate-y-1 text-center group">
+                  <div className="mb-3 flex justify-center">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-primary-cta flex items-center justify-center group-hover:shadow-glow-primary transition-all duration-300">
+                      <stat.icon className="w-6 h-6 text-foreground" />
+                    </div>
+                  </div>
                   <div className="text-sm text-muted-foreground mb-2">{stat.label}</div>
                   <div className="text-2xl font-bold bg-gradient-text bg-clip-text text-transparent">
                     {stat.value}
@@ -125,17 +150,74 @@ export const Tokenomics = () => {
             ))}
           </div>
 
+          {/* Tokenomics Pie Chart */}
+          <div className="group relative animate-slide-up" style={{ animationDelay: "0.5s" }}>
+            <div className="absolute -inset-0.5 bg-gradient-border rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
+            
+            <div className="relative p-8 rounded-2xl bg-gradient-card backdrop-blur-xl border border-border/50 shadow-card hover:shadow-card-hover transition-all duration-500">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-heading mb-2">Token Distribution</h3>
+                <p className="text-secondary-enhanced text-body">How the 1B $DUMB tokens are allocated</p>
+              </div>
+              
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                {/* Pie Chart */}
+                <div className="w-full lg:w-1/2 h-80 lg:h-96">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={tokenomicsData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={120}
+                        paddingAngle={2}
+                        dataKey="value"
+                        stroke="none"
+                      >
+                        {tokenomicsData.map((entry, index) => (
+                          <Cell 
+                            key={`cell-${index}`} 
+                            fill={entry.color}
+                            className="hover:opacity-80 transition-opacity duration-300 cursor-pointer"
+                          />
+                        ))}
+                      </Pie>
+                      <Tooltip content={<CustomTooltip />} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                
+                {/* Legend */}
+                <div className="w-full lg:w-1/2 space-y-3">
+                  {tokenomicsData.map((item, index) => (
+                    <div key={index} className="flex items-center gap-3 group/legend">
+                      <div 
+                        className="w-4 h-4 rounded-full transition-all duration-300 group-hover/legend:scale-110"
+                        style={{ backgroundColor: item.color }}
+                      ></div>
+                      <div className="flex-1">
+                        <div className="text-foreground font-semibold">{item.name}</div>
+                        <div className="text-sm text-secondary-enhanced">{item.value}%</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Ticker Highlight */}
           <div className="relative animate-slide-up" style={{ animationDelay: "0.4s" }}>
             <div className="flex items-center justify-center gap-6 p-8 rounded-2xl bg-gradient-card backdrop-blur-xl border border-border/50">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-primary-cta blur-2xl opacity-50 animate-pulse-glow"></div>
-                <div className="relative text-5xl sm:text-6xl font-bold bg-gradient-text bg-clip-text text-transparent">
+                <div className="relative text-5xl sm:text-6xl font-bold text-foreground">
                   $DUMB
                 </div>
               </div>
               <div className="w-12 h-12 bg-gradient-primary-cta rounded-full animate-spin-slow flex items-center justify-center text-2xl shadow-glow-primary">
-                🪙
+                <Coins className="w-6 h-6 text-foreground" />
               </div>
             </div>
           </div>

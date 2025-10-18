@@ -17,11 +17,11 @@ export const Whitepaper = () => {
                 <div className="mx-auto w-20 h-20 bg-gradient-primary-cta rounded-2xl flex items-center justify-center shadow-glow-primary mb-6">
                   <FileText className="w-10 h-10 text-foreground" />
                 </div>
-                <h2 className="text-3xl sm:text-5xl font-bold mb-4">
-                  The Dumb <span className="bg-gradient-text bg-clip-text text-transparent">Manifesto</span>
+                <h2 className="text-3xl sm:text-5xl font-bold text-heading mb-4">
+                  The <span className="text-primary-enhanced">Dumb</span> <span className="bg-gradient-text bg-clip-text text-transparent">Manifesto</span>
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Explore our comprehensive whitepaper to understand the brilliance behind the dumbness
+                <p className="text-lg text-secondary-enhanced max-w-2xl mx-auto text-body">
+                  Explore our comprehensive whitepaper to understand the brilliance behind the <span className="text-primary-enhanced">dumbness</span>
                 </p>
               </div>
 

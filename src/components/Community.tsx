@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Twitter, MessageCircle, Users, ExternalLink } from "lucide-react";
+import { Twitter, MessageCircle, Users, ExternalLink, UserCheck, Heart, Zap, Brain } from "lucide-react";
 
 const socials = [
   {
@@ -35,11 +35,11 @@ export const Community = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 space-y-4 animate-slide-up">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Join the <span className="bg-gradient-accent bg-clip-text text-transparent">Dumb Army</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-heading">
+            Join the <span className="text-accent font-bold">Dumb Army</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Connect with thousands of holders making smart dumb decisions together
+          <p className="text-lg text-secondary-enhanced max-w-2xl mx-auto text-body">
+            Connect with thousands of holders making smart <span className="text-primary-enhanced">dumb</span> decisions together
           </p>
         </div>
 
@@ -80,16 +80,21 @@ export const Community = () => {
         {/* Community stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {[
-            { label: "Holders", value: "Growing" },
-            { label: "Community", value: "Strong" },
-            { label: "Vibes", value: "Immaculate" },
-            { label: "Dumbness", value: "100%" },
+            { label: "Holders", value: "Growing", icon: UserCheck },
+            { label: "Community", value: "Strong", icon: Users },
+            { label: "Vibes", value: "Immaculate", icon: Heart },
+            { label: "Dumbness", value: "100%", icon: Brain },
           ].map((stat, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-gradient-card backdrop-blur-sm border border-border text-center animate-slide-up"
+              className="p-6 rounded-2xl bg-gradient-card backdrop-blur-sm border border-border text-center animate-slide-up group hover:scale-105 transition-all duration-300"
               style={{ animationDelay: `${index * 0.1 + 0.6}s` }}
             >
+              <div className="mb-3 flex justify-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-primary-cta flex items-center justify-center group-hover:shadow-glow-primary transition-all duration-300">
+                  <stat.icon className="w-6 h-6 text-foreground" />
+                </div>
+              </div>
               <div className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent mb-2">
                 {stat.value}
               </div>
