@@ -7,7 +7,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recha
 const stats = [
   { label: "Network", value: "Base", icon: Network },
   { label: "Ticker", value: "$DUMB", icon: Coins },
-  { label: "Total Supply", value: "1B", icon: Gem },
+  { label: "Total Supply", value: "100B", icon: Gem },
   { label: "Holders", value: "Growing", icon: Users },
 ];
 
@@ -157,7 +157,7 @@ export const Tokenomics = () => {
             <div className="relative p-8 rounded-2xl bg-gradient-card backdrop-blur-xl border border-border/50 shadow-card hover:shadow-card-hover transition-all duration-500">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-heading mb-2">Token Distribution</h3>
-                <p className="text-secondary-enhanced text-body">How the 1B $DUMB tokens are allocated</p>
+                <p className="text-secondary-enhanced text-body">How the 100B $DUMB tokens are allocated</p>
               </div>
               
               <div className="flex flex-col lg:flex-row items-center gap-8">

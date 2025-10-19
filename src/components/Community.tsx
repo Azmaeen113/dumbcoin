@@ -16,13 +16,6 @@ const socials = [
     followers: "Chat with the community",
     color: "from-[#0088cc] to-[#006699]",
   },
-  {
-    name: "Discord",
-    icon: Users,
-    url: "#",
-    followers: "Coming soon",
-    color: "from-[#5865F2] to-[#4752C4]",
-  },
 ];
 
 export const Community = () => {
@@ -43,7 +36,7 @@ export const Community = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {socials.map((social, index) => (
             <a
               key={index}
